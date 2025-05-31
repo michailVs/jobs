@@ -1,13 +1,13 @@
 import { useEffect, useState, type ChangeEvent } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { add, filtered } from '../store/cv/cv'
 import type { ICV } from '../Types/Api.type'
 import { getCV } from '../API/unknownAPI'
 import Select from '../UI/Select/Select'
+import { useAppDispatch, useAppSelector } from '../hooks/store.hooks'
 
 const CV = () => {
-	const { cv }: { cv: ICV[] } = useSelector(state => state.cv)
-	const dispatch = useDispatch()
+	const { cv }: { cv: ICV[] } = useAppSelector(state => state.cv)
+	const dispatch = useAppDispatch()
 	const filter = ['Любой', '1-3 года', '3-5 лет', '5+ лет']
 	const [isLoading, setLoading] = useState(true)
 
